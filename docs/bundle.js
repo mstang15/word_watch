@@ -84,7 +84,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 __WEBPACK_IMPORTED_MODULE_0_jquery___default()(document).ready(() => {
   // have fun!
   function breakDown(){
-    debugger;
   }
 })
 

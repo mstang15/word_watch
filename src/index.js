@@ -7,17 +7,19 @@ $(document).ready(() => {
 })
 
 function breakDown(){
-  fetch(`${url}/api/v1/top_word`)
-  .then((response)=>{
-    debugger;
-    handleResponse(response);
+  fetch("https://wordwatch-api.herokuapp.com/api/v1/top_word")
+  .then(function(response) {
+    return response.json();
   })
   .then((word)=>{
     displayTopWord(word);
   })
 }
 
-function displayTopWord(word){
+function displayTopWord(wordInfo){
+  var wordSpace = document.getElementById('top-word')
+  var topWord = Object.keys(wordInfo.word)[0]
+  wordSpace.innerHTML = topWord
 }
 
 function handleResponse(response) {
