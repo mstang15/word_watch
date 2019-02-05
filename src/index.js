@@ -47,7 +47,7 @@ function breakDown(){
   individualWords.forEach(function(word) {
     postWords(word);
   })
-
+  alert(`${userInput} added successfully`)
 }
 
 function postWords(wordToPost){
@@ -62,13 +62,14 @@ function postWords(wordToPost){
     return response.json();
   })
   .then((word)=>{
-    alert(word.message)
     displayUserInput(wordToPost);
   })
 }
 
 function displayUserInput(word){
   $('#user-words').append(`
-    <div id = 'user-word-${word}'>${word}</div>`
+    <tr>
+      <td id = 'user-word-${word}'>${word}</td>
+      </tr>`
   )
 }
