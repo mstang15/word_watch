@@ -19,7 +19,8 @@ function breakDown(){
 function displayTopWord(wordInfo){
   var wordSpace = document.getElementById('top-word')
   var topWord = Object.keys(wordInfo.word)[0]
-  wordSpace.innerHTML = topWord
+  var topWordCount = wordInfo.word[topWord]
+  wordSpace.innerHTML = `${topWord}(count:${topWordCount})`
 }
 
 function handleResponse(response) {
