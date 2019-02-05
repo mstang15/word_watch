@@ -39,6 +39,36 @@ function handleResponse(response) {
     })
 };
 
+
 function breakDown(){
-  debugger;
+  var userInput = document.getElementById('user-input').value;
+  var individualWords = userInput.split(" ");
+
+  individualWords.forEach(function(word) {
+    postWords(word);
+  })
+
+}
+
+function postWords(wordToPost){
+  fetch("https://wordwatch-api.herokuapp.com/api/v1/words",{
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      word:{ value: `${wordToPost}`}
+    })
+  })
+  .then(function(response) {
+    return response.json();
+  })
+  .then((word)=>{
+    alert(word.message)
+    displayUserInput(wordToPost);
+  })
+}
+
+function displayUserInput(word){
+  $('#user-words').append(`
+    <div id = 'user-word-${word}'>${word}</div>`
+  )
 }
