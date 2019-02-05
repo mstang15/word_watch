@@ -1,12 +1,13 @@
 import $ from 'jquery'
 var url = 'https://wordwatch-api.herokuapp.com'
 $(document).ready(() => {
-  // have fun!
-  breakDown();
-
+  $('#break-down').click(function() {
+    breakDown();
+  });
+  getTopWord();
 })
 
-function breakDown(){
+function getTopWord(){
   fetch("https://wordwatch-api.herokuapp.com/api/v1/top_word")
   .then(function(response) {
     return response.json();
@@ -37,3 +38,7 @@ function handleResponse(response) {
       return json
     })
 };
+
+function breakDown(){
+  debugger;
+}
